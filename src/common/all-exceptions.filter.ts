@@ -26,6 +26,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
   }
 
   private handleHttpException(exception: unknown, host: ArgumentsHost) {
+    console.error('=== HTTP Exception ===', exception);
     const ctx = host.switchToHttp();
     const req = ctx.getRequest<Request>();
     const res = ctx.getResponse<Response>();
